@@ -1,0 +1,56 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Launch with Arguments Prompt",
+            "request": "launch",
+            "mainClass": "",
+            "args": "${command:SpecifyProgramArgs}"
+        },
+        {
+            "type": "java",
+            "name": "Launch Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Launch AnnoyingBeep",
+            "request": "launch",
+            "mainClass": "TD1.AnnoyingBeep",
+            "projectName": "TP-POO_89070c6a"
+        },
+        {
+            "type": "java",
+            "name": "Launch RaceDemo",
+            "request": "launch",
+            "mainClass": "TD1.RaceDemo",
+            "projectName": "TP-POO_89070c6a"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestThread0",
+            "request": "launch",
+            "mainClass": "TD1.TestThread0",
+            "projectName": "TP-POO_89070c6a"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestThreadMany",
+            "request": "launch",
+            "mainClass": "TD1.TestThreadMany",
+            "projectName": "TP-POO_89070c6a"
+        },
+        {
+            "type": "java",
+            "name": "Launch TwoThreadsDemo",
+            "request": "launch",
+            "mainClass": "TD1.TwoThreadsDemo",
+            "projectName": "TP-POO_89070c6a"
+        }
+    ]
+}
