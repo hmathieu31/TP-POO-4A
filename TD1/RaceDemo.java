@@ -12,7 +12,7 @@ public class RaceDemo {
         for (int i = 0; i < NUMRUNNERS; i++) {
             runner.start();
             runners[i].start();
-            
+
         }
     }
 }

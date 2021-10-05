@@ -7,16 +7,14 @@ public class PoliteRunner extends Thread {
         this.num = num;
     }
 
-    synchronized public void run() {
-        try {
-            wait();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public void run() {
         while (tick < 400000) { 
+            Thread.yield();
+
             tick++;
-            if ((tick % 50000) == 0)
+            if ((tick % 50000) == 0) {
                 System.out.println("Thread #" + num + ", tick = " + tick);
+            }
                 
         }
     }

@@ -7,12 +7,11 @@ public class SelfishRunner extends Thread {
         this.num = num;
     }
 
-    synchronized public void run() {
+    public void run() {
         while (tick < 400000) {
             tick++;
             if ((tick % 50000) == 0)
                 System.out.println("Thread #" + num + ", tick = " + tick);
         }
-        notify();
     }
 }
