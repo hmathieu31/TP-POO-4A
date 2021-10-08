@@ -9,28 +9,36 @@ import java.awt.Toolkit;
 public class AnnoyingBeep {
     Toolkit toolkit;
     Timer timer;
+    long t;
+
 
     public AnnoyingBeep() {
+        TimerTask task;
         toolkit = Toolkit.getDefaultToolkit();
         timer = new Timer();
-        timer.scheduleAtFixedRate(new RemindTask(), 5000, // initial delay
+        timer.scheduleAtFixedRate(task = new RemindTask(), 5000, // initial delay
                 1 * 1000); // subsequent rate
-        // long t = System.currentTimeMillis();
+        t = task.scheduledExecutionTime();
     }
 
     class RemindTask extends TimerTask {
         int numWarningBeeps = 3;
 
         public void run() {
-            if (numWarningBeeps > 0) {
-                toolkit.beep();
-                System.out.println("Beep!");
-                numWarningBeeps--;
+            if (System.currentTimeMillis() < t + 5) {
+                if (numWarningBeeps > 0) {
+                    toolkit.beep();
+                    System.out.println("Beep!");
+                    numWarningBeeps--;
+                } else {
+                    toolkit.beep();
+                    System.out.println("Time's up!");
+                    // timer.cancel(); //Not necessary because we call System.exit
+                    System.exit(0); // Stops the AWT thread (and everything else)
+                } 
             } else {
-                toolkit.beep();
-                System.out.println("Time's up!");
-                // timer.cancel(); //Not necessary because we call System.exit
-                System.exit(0); // Stops the AWT thread (and everything else)
+                System.out.println("Too late");
+                System.exit(1);
             }
         }
     }
